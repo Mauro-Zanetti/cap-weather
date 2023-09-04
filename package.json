@@ -1,0 +1,33 @@
+{
+  "name": "cap-whether",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap-cloud-sdk/openapi": "^3.4.0",
+    "@sap/cds": "^7",
+    "@sap/xssec": "^3.3.3",
+    "express": "^4",
+    "passport": "^0.6.0"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^7"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "deploy": "npm i && mbt build && cf deploy mta_archives/cap-whether_1.0.0.mtar --retries 1"
+  },
+  "cds": {
+    "requires": {
+      "OpenWeatherApi": {
+        "kind": "rest",
+        "credentials": {
+          "url": "https://api.openweathermap.org/data/2.5"
+        }
+      }
+    }
+  }
+}
