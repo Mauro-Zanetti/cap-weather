@@ -1,4 +1,5 @@
 const cds = require('@sap/cds')
+const constants = require('./Constants.json');
 
 module.exports = cds.service.impl(async function() {
 
@@ -41,7 +42,7 @@ module.exports = cds.service.impl(async function() {
             throw new Error("At least one filter is required");
         }
 
-        const apiKey = "<apiKey>"; // Reemplazar <apiKey> por su apiKey en https://home.openweathermap.org/api_keys
+        const apiKey = constants.APIKey; // Conseguir su apiKey en https://home.openweathermap.org/api_keys
         if (!apiKey) {
             throw new Error("API key is missing.");
         }
